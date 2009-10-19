@@ -5,11 +5,13 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "column_timestamps"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Keeps track of when a specific column in an ActiveRecord model changed.}
+    gem.description = %Q{Works "automagically" like updated_at...just add a column named <column>_updated_at, and when your column changes, the timestamp will be updated. }
     gem.email = "myron.marston@gmail.com"
     gem.homepage = "http://github.com/myronmarston/column_timestamps"
     gem.authors = ["Myron Marston"]
+    gem.add_dependency 'activerecord'
+    gem.add_development_dependency 'sqlite3-ruby'
     gem.add_development_dependency "rspec", ">= 1.2.9"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
