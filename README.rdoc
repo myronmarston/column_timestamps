@@ -4,21 +4,32 @@ ActiveRecord manages your updated_at columns for you, updating the timestamp whe
 This gem provides similar, but more granular functionality: in addition to a table-wide updated_at column,
 you can have additional timestamp columns that track when specific columns change.
 
+== Download
+
+Github: http://github.com/myronmarston/column_timestamps
+
+Gem:
+  gem install column_timestamps --source http://gemcutter.org
+
+== Usage
+
+Load the gem using Rails' 2.1+ gem support.  In environment.rb:
+
+  config.gem 'column_timestamps', :source => 'http://gemcutter.org'
+
 Usage is pretty simple:
 - Create a new datetime column using the naming convention <column>_updated_at.
 - Include ColumnTimestamps in your model.
 
 Example:
 
-    # schema definition...
-    ActiveRecord::Schema.define do
-      create_table :users, :force => true do |t|
-        t.string    :email_address
-        t.string    :name
-        t.string    :state
-        t.datetime  :state_updated_at
-        t.timestamps
-      end
+    # in a migration...
+    create_table :users, :force => true do |t|
+      t.string    :email_address
+      t.string    :name
+      t.string    :state
+      t.datetime  :state_updated_at
+      t.timestamps
     end
 
     # Model...
