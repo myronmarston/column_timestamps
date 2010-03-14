@@ -1,4 +1,5 @@
 require 'rubygems'
+gem 'activerecord', '>= 2.1.0', '< 3.0.0.beta'
 require 'column_timestamps'
 require 'spec'
 require 'spec/autorun'
