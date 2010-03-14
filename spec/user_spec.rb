@@ -20,7 +20,7 @@ describe User do
   describe "saving the record with a name value" do
     before(:each) do
       @now = @now1 = Time.now
-      stub(Time).now { @now }
+      Time.stub!(:now).and_return { @now }
       @user = User.create!(:name => 'David')
       @user.reload
     end

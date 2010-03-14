@@ -10,5 +10,4 @@ require 'fixtures/schema.rb'
 require 'fixtures/models.rb'
 
 Spec::Runner.configure do |config|
-  config.mock_with :rr
 end
