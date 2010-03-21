@@ -1,5 +1,6 @@
 require 'rubygems'
-gem 'activerecord', '>= 2.1.0', '< 3.0.0.beta'
+$LOAD_PATH << File.join(File.dirname(__FILE__), *%w[.. vendor ginger lib])
+require 'ginger'
 require 'column_timestamps'
 require 'spec'
 require 'spec/autorun'

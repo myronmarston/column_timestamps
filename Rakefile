@@ -14,6 +14,7 @@ begin
     gem.add_development_dependency 'sqlite3-ruby', '>= 1.2.5'
     gem.add_development_dependency "rspec", ">= 1.2.9"
 
+    gem.files.exclude 'vendor/ginger'
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
@@ -60,7 +61,15 @@ rescue LoadError
   end
 end
 
-task :default => :spec
+desc 'Run ginger tests'
+task :ginger do
+  $LOAD_PATH << File.join(*%w[vendor ginger lib])
+  ARGV.clear
+  ARGV << 'spec'
+  load File.join(*%w[vendor ginger bin ginger])
+end
+
+task :default => :ginger
 
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
