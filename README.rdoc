@@ -4,18 +4,19 @@ ActiveRecord manages your updated_at columns for you, updating the timestamp whe
 This gem provides similar, but more granular functionality: in addition to a table-wide updated_at column,
 you can have additional timestamp columns that track when specific columns change.
 
-== Download
+== Hompage
 
-Github: http://github.com/myronmarston/column_timestamps
+http://github.com/myronmarston/column_timestamps
 
-Gem:
-  gem install column_timestamps --source http://gemcutter.org
+== Installation
+
+  gem install column_timestamps
 
 == Usage
 
 Load the gem using Rails' 2.1+ gem support.  In environment.rb:
 
-  config.gem 'column_timestamps', :source => 'http://gemcutter.org'
+  config.gem 'column_timestamps'
 
 Usage is pretty simple:
 - Create a new datetime column using the naming convention <column>_updated_at.
@@ -39,6 +40,12 @@ Example:
 
 Anytime the state attribute of a user record is changed, the state_updated_at timestamp will be updated to reflect that.
 
+== Version Compatibility
+
+column_timestamps relies upon the dirty attributes functionality introduced to ActiveRecord in version 2.1.  It works on
+any version since 2.1, including 3.0.0.beta.  It works on ruby {1.8.6}[[http://integrity186.heroku.com/column-timestamps]],
+{1.8.7}[http://integrity187.heroku.com/column-timestamps] and {1.9.1}[http://integrity191.heroku.com/column-timestamps].
+
 == Note on Patches/Pull Requests
  
 * Fork the project.
@@ -51,4 +58,4 @@ Anytime the state attribute of a user record is changed, the state_updated_at ti
 
 == Copyright
 
-Copyright (c) 2009 Myron Marston. See LICENSE for details.
+Copyright (c) 2009-2010 Myron Marston. See LICENSE for details.
