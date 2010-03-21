@@ -11,7 +11,7 @@ describe User do
     @user.state_updated_at.should be_nil
   end
 
-  it "should not set the the column timestamps when saved with name or state values" do
+  it "should not set the the column timestamps when saved without name or state values" do
     @user = User.create!
     @user.name_updated_at.should be_nil
     @user.state_updated_at.should be_nil
