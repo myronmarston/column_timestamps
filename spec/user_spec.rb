@@ -2,19 +2,28 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe User do
   it "should return the timestamped_column_names from #timestamped_column_names" do
-    User.timestamped_column_names.sort.should == %w( name state )
+    User.timestamped_column_names.should =~ %w( name role state )
   end
 
   it "should initially have nil values for the column timestamps" do
     @user = User.new
     @user.name_updated_at.should be_nil
     @user.state_updated_at.should be_nil
+    @user.role_updated_at.should be_nil
   end
 
   it "should not set the the column timestamps when saved without name or state values" do
-    @user = User.create!
+    @user = User.create!; @user.reload
     @user.name_updated_at.should be_nil
     @user.state_updated_at.should be_nil
+  end
+
+  it "should set a timestamp on creation for columns that have a default" do
+    @now = Time.now
+    Time.stub!(:now).and_return(@now)
+    @user = User.create!
+    @user.reload
+    @user.role_updated_at.to_s.should == @now.to_s
   end
 
   describe "saving the record with a name value" do
