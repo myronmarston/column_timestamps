@@ -17,7 +17,7 @@ module ColumnTimestamps
   def update_column_timestamps
     current_time = self.class.default_timezone == :utc ? Time.now.utc : Time.now
     self.class.timestamped_column_names.each do |column_name|
-      if self.send(:"#{column_name}_changed?") || (self.send(column_name).present? && new_record?)
+      if self.send(:"#{column_name}_changed?") || (!self.send(column_name).blank? && new_record?)
         self.send(:"#{column_name}_updated_at=", current_time)
       end
     end
