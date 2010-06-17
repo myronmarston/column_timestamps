@@ -43,7 +43,7 @@ Anytime the state attribute of a user record is changed, the state_updated_at ti
 == Version Compatibility
 
 column_timestamps relies upon the dirty attributes functionality introduced to ActiveRecord in version 2.1.  It works on
-any version since 2.1, including 3.0.0.beta.  It works on ruby {1.8.6}[[http://integrity186.heroku.com/column-timestamps]],
+any version since 2.1, including 3.0.0.beta4.  It works on ruby {1.8.6}[[http://integrity186.heroku.com/column-timestamps]],
 {1.8.7}[http://integrity187.heroku.com/column-timestamps] and {1.9.1}[http://integrity191.heroku.com/column-timestamps].
 
 == Note on Patches/Pull Requests
